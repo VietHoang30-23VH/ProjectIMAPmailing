@@ -17,10 +17,15 @@ namespace SendMail_SMPT
             InitializeComponent();
         }
 
-        private void btnDangNhap_Click(object sender, EventArgs e)
+        private void btnBatDau_Click(object sender, EventArgs e)
         {
             DangNhap dangNhap = new DangNhap();
             dangNhap.ShowDialog();
+        }
+
+        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

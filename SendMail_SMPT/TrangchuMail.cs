@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net.Mail;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MailKit;
@@ -20,11 +14,15 @@ namespace SendMail_SMPT
 {
     public partial class TrangchuMail : Form
     {
+        private ImapClient mailClient;
+
         public TrangchuMail()
         {
             InitializeComponent();
+            this.FormClosing += TrangchuMail_FormClosing; // Đảm bảo ngắt kết nối IMAP khi form đóng
             GetMail();
         }
+
         public class EmailInfo
         {
             public string Id { get; set; }
@@ -32,73 +30,68 @@ namespace SendMail_SMPT
             public DateTimeOffset TimeReceive { get; set; }
             public string Subject { get; set; }
             public string Body { get; set; }
-            public string FileAttactment { get; set; }
+            public string FileAttachment { get; set; }
         }
-        private void btSendMail_Click(object sender, EventArgs e)
-        {
-            SendMail instanceSend= new SendMail();
-            instanceSend.Show();
-        }
+
         private async void GetMail()
         {
-                string textTK = MKTK.TaiKhoan;
-                string textMK = MKTK.Matkhau;
-                var listEmail = new List<EmailInfo>();
-                var mailClient = new ImapClient();
-                mailClient.Connect("imap.gmail.com", 993);
-                mailClient.Authenticate(textTK, textMK);
-                var folder = await mailClient.GetFolderAsync("Inbox");
-                await folder.OpenAsync(FolderAccess.ReadWrite);
-                int emailCount = 0;
+            string textTK = MKTK.TaiKhoan;
+            string textMK = MKTK.Matkhau;
+            var listEmail = new List<EmailInfo>();
 
-            IList<UniqueId> emailIds = folder.Search(SearchQuery.All);
+            mailClient = new ImapClient();
+            await mailClient.ConnectAsync("imap.gmail.com", 993, true);
+            await mailClient.AuthenticateAsync(textTK, textMK);
 
+            var folder = await mailClient.GetFolderAsync("INBOX");
+            await folder.OpenAsync(FolderAccess.ReadWrite);
+
+            IList<UniqueId> emailIds = await folder.SearchAsync(SearchQuery.All);
             emailIds = emailIds.OrderByDescending(uid => folder.GetMessage(uid).Date).ToList();
 
+            int emailCount = 0;
             foreach (UniqueId emailId in emailIds)
             {
-                    if (emailCount >= int.Parse("20"))
+                if (emailCount >= 20)
+                {
+                    break;
+                }
+
+                MimeMessage message = await folder.GetMessageAsync(emailId);
+                var emailInfo = new EmailInfo
+                {
+                    Id = emailId.ToString(),
+                    From = message.From.ToString(),
+                    TimeReceive = message.Date,
+                    Subject = message.Subject,
+                    Body = !string.IsNullOrEmpty(message.HtmlBody) ? message.HtmlBody : message.TextBody
+                };
+
+                var fileAttachment = new List<string>();
+                foreach (MimeEntity attachment in message.Attachments)
+                {
+                    var fileName = attachment.ContentDisposition?.FileName ?? attachment.ContentType.Name;
+                    fileAttachment.Add(fileName);
+
+                    using (var stream = new FileStream(fileName, FileMode.Create))
                     {
-                        break;
-                    }
-                    MimeMessage message = folder.GetMessage(emailId);
-                    var emailInfo = new EmailInfo();
-                    emailInfo.Id=emailId.ToString();
-                    emailInfo.From=message.From.ToString();
-                    emailInfo.TimeReceive = message.Date;
-                    emailInfo.Subject = message.Subject;
-                    emailInfo.Body=message.TextBody;
-
-                    var fileAttachment =new List<string>();
-
-                    foreach(MimeEntity attachment in message.Attachments)
-                    {
-                        var fileName = attachment.ContentDisposition?.FileName ?? attachment.ContentType.Name;
-                        fileAttachment.Add(fileName);
-
-                        using (var stream = new FileStream(fileName, FileMode.Create))
+                        if (attachment is MessagePart rfc822)
                         {
-                            if(attachment is MessagePart)
-                            {
-                                var rfc822=(MessagePart)attachment;
-                                rfc822.Message.WriteTo(stream);
-
-                            }
-                            else
-                            {
-                                var part = (MimePart)attachment;
-                                part.Content.DecodeTo(stream);
-                            }
-
+                            await rfc822.Message.WriteToAsync(stream);
+                        }
+                        else if (attachment is MimePart part)
+                        {
+                            await part.Content.DecodeToAsync(stream);
                         }
                     }
-                    emailInfo.FileAttactment=string.Join("; ", fileAttachment);
-                    listEmail.Add(emailInfo);
-                    emailCount++;
+                }
+                emailInfo.FileAttachment = string.Join("; ", fileAttachment);
+                listEmail.Add(emailInfo);
+                emailCount++;
             }
-                dataGridView1.CellClick += DataGridView1_CellClick;
-                dataGridView1.DataSource = listEmail;
-            
+
+            dataGridView1.DataSource = listEmail;
+            dataGridView1.CellClick += DataGridView1_CellClick;
         }
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -108,14 +101,57 @@ namespace SendMail_SMPT
                 var emailInfo = dataGridView1.Rows[e.RowIndex].DataBoundItem as EmailInfo;
                 if (emailInfo != null)
                 {
-                    richTextBox1.Text = $"From: {emailInfo.From}\nSubject: {emailInfo.Subject}\nTime Receive: {emailInfo.TimeReceive}\n\n{emailInfo.Body}";
+                    string emailHtml = GetEmailHtml(emailInfo);
+                    webBrowser1.DocumentText = emailHtml;
                 }
             }
         }
 
+        private string GetEmailHtml(EmailInfo emailInfo)
+        {
+            return $@"
+            <html>
+            <head>
+                <style>
+                    body {{
+                        font-family: Arial, sans-serif;
+                        margin: 20px;
+                    }}
+                    .header {{
+                        font-weight: bold;
+                        margin-bottom: 10px;
+                    }}
+                    .body {{
+                        margin-top: 20px;
+                    }}
+                </style>
+            </head>
+            <body>
+                <div class='header'>From: {emailInfo.From}</div>
+                <div class='header'>Subject: {emailInfo.Subject}</div>
+                <div class='header'>Time Receive: {emailInfo.TimeReceive}</div>
+                <hr/>
+                <div class='body'>{emailInfo.Body}</div>
+            </body>
+            </html>";
+        }
+
+        private void TrangchuMail_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (mailClient != null && mailClient.IsConnected)
+            {
+                mailClient.Disconnect(true);
+            }
+        }
+
+        private void btSendMail_Click(object sender, EventArgs e)
+        {
+            SendMail instanceSend = new SendMail();
+            instanceSend.Show();
+        }
+
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
             dataGridView1.Refresh();
             DialogResult result = MessageBox.Show("Bạn muốn đăng xuất chứ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
@@ -127,6 +163,16 @@ namespace SendMail_SMPT
         private void btnQuaylai2_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Bạn có thể thêm logic cho sự kiện này nếu cần thiết
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

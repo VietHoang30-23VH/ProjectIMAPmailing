@@ -27,14 +27,16 @@ namespace SendMail_SMPT
             public static string TaiKhoan { get; set; }
             public static string Matkhau { get; set; }
         }
-        private void btnDangnhap_Click(object sender, EventArgs e)
+        private void btnQuanLyThu_Click(object sender, EventArgs e)
         {
             try
             {
+                MKTK.TaiKhoan = txbTaikhoan.Text;
+                MKTK.Matkhau = txbMatkhau.Text;
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
                 smtpClient.Port = 587;
                 smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new System.Net.NetworkCredential(txbTaikhoan.Text, txbMatkhau.Text);
+                smtpClient.Credentials = new System.Net.NetworkCredential(MKTK.TaiKhoan,MKTK.Matkhau);
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtpClient.EnableSsl = true;
                 TrangchuMail instancemail = new TrangchuMail();
@@ -59,14 +61,16 @@ namespace SendMail_SMPT
 
         private void btnGuiThu_Click(object sender, EventArgs e)
         {
+            MKTK.TaiKhoan = txbTaikhoan.Text;
+            MKTK.Matkhau = txbMatkhau.Text;
             var listEmail = new List<EmailInfo>();
             var mailClient = new ImapClient();
             mailClient.Connect("imap.gmail.com", 993);
-            mailClient.Authenticate(txbTaikhoan.Text, txbMatkhau.Text);
+            mailClient.Authenticate(MKTK.TaiKhoan, MKTK.Matkhau);
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
             smtpClient.Port = 587;
             smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = new System.Net.NetworkCredential(txbTaikhoan.Text, txbMatkhau.Text);
+            smtpClient.Credentials = new System.Net.NetworkCredential(MKTK.TaiKhoan, MKTK.Matkhau);
             smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtpClient.EnableSsl = true;
             SendMail sendMail = new SendMail();
@@ -76,26 +80,31 @@ namespace SendMail_SMPT
         private void DangNhap_Load(object sender, EventArgs e)
         {
             btnGuiThu.Enabled = false;
-            btnDangnhap.Enabled = false;
+            btnQuanLyThu.Enabled = false;
         }
 
         private void btnDN_Click(object sender, EventArgs e)
         {
             try
             {
+                MKTK.TaiKhoan = txbTaikhoan.Text;
+                MKTK.Matkhau = txbMatkhau.Text;
                 var listEmail = new List<EmailInfo>();
                 var mailClient = new ImapClient();
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
                 mailClient.Connect("imap.gmail.com", 993);
-                mailClient.Authenticate(txbTaikhoan.Text, txbMatkhau.Text);
+                mailClient.Authenticate(MKTK.TaiKhoan, MKTK.Matkhau);
                 smtpClient.Port = 587;
                 smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new System.Net.NetworkCredential(txbTaikhoan.Text, txbMatkhau.Text);
+                smtpClient.Credentials = new System.Net.NetworkCredential(MKTK.TaiKhoan, MKTK.Matkhau);
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtpClient.EnableSsl = true;
                 MessageBox.Show("Đăng nhập thành công.","Thông bá0",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 btnGuiThu.Enabled = true;
-                btnDangnhap.Enabled = true;
+                btnQuanLyThu.Enabled = true;
+                btnDN.Enabled = false;
+                txbMatkhau.ReadOnly = true;
+                txbTaikhoan.ReadOnly = true;
             }
             catch
             {

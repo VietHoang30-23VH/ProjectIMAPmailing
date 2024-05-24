@@ -1,22 +1,58 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\HK2_2024\\laptrinhmangcanban\\ProjectIMAP\\SendMail_SMPT\\",
+  "WorkspaceRootPath": "D:\\Winform\\ProjectIMAPmailing\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|d:\\hk2_2024\\laptrinhmangcanban\\projectimap\\sendmail_smpt\\sendmail_smpt\\trangchumail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|D:\\Winform\\ProjectIMAPmailing\\sendmail_smpt\\trangchumail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\trangchumail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|d:\\hk2_2024\\laptrinhmangcanban\\projectimap\\sendmail_smpt\\sendmail_smpt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|d:\\winform\\projectimapmailing\\sendmail_smpt\\trangchumail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\trangchumail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|d:\\hk2_2024\\laptrinhmangcanban\\projectimap\\sendmail_smpt\\sendmail_smpt\\sendmail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|D:\\Winform\\ProjectIMAPmailing\\sendmail_smpt\\sendmail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\sendmail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|d:\\winform\\projectimapmailing\\sendmail_smpt\\dangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\dangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|d:\\winform\\projectimapmailing\\sendmail_smpt\\manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|d:\\winform\\projectimapmailing\\sendmail_smpt\\dangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\dangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|d:\\winform\\projectimapmailing\\sendmail_smpt\\dangnhap.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\dangnhap.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|d:\\winform\\projectimapmailing\\sendmail_smpt\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|d:\\winform\\projectimapmailing\\sendmail_smpt\\manage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\manage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|d:\\winform\\projectimapmailing\\sendmail_smpt\\manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|D:\\Winform\\ProjectIMAPmailing\\sendmail_smpt\\sendmail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\sendmail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|d:\\hk2_2024\\laptrinhmangcanban\\projectimap\\sendmail_smpt\\sendmail_smpt\\sendmail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\sendmail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|d:\\winform\\projectimapmailing\\sendmail_smpt\\sendmail.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\sendmail.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|D:\\Winform\\ProjectIMAPmailing\\sendmail_smpt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D14F62B4-3731-460A-96AA-BD1344F45BF5}|SendMail_SMPT\\SendMail_SMPT.csproj|solutionrelative:sendmail_smpt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,41 +62,68 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DangNhap.cs [Design]",
+              "DocumentMoniker": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\DangNhap.cs",
+              "RelativeDocumentMoniker": "SendMail_SMPT\\DangNhap.cs",
+              "ToolTip": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\DangNhap.cs [Design]",
+              "RelativeToolTip": "SendMail_SMPT\\DangNhap.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T15:08:38.469Z",
+              "EditorCaption": " [Design]"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\HK2_2024\\laptrinhmangcanban\\ProjectIMAP\\SendMail_SMPT\\SendMail_SMPT\\Program.cs",
-              "RelativeDocumentMoniker": "SendMail_SMPT\\Program.cs",
-              "ToolTip": "D:\\HK2_2024\\laptrinhmangcanban\\ProjectIMAP\\SendMail_SMPT\\SendMail_SMPT\\Program.cs",
-              "RelativeToolTip": "SendMail_SMPT\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Title": "TrangchuMail.cs [Design]",
+              "DocumentMoniker": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\TrangchuMail.cs",
+              "RelativeDocumentMoniker": "SendMail_SMPT\\TrangchuMail.cs",
+              "ToolTip": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\TrangchuMail.cs [Design]",
+              "RelativeToolTip": "SendMail_SMPT\\TrangchuMail.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-19T08:22:49.723Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T14:17:51.452Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "TrangchuMail.cs",
-              "DocumentMoniker": "D:\\HK2_2024\\laptrinhmangcanban\\ProjectIMAP\\SendMail_SMPT\\SendMail_SMPT\\TrangchuMail.cs",
+              "DocumentMoniker": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\TrangchuMail.cs",
               "RelativeDocumentMoniker": "SendMail_SMPT\\TrangchuMail.cs",
-              "ToolTip": "D:\\HK2_2024\\laptrinhmangcanban\\ProjectIMAP\\SendMail_SMPT\\SendMail_SMPT\\TrangchuMail.cs",
+              "ToolTip": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\TrangchuMail.cs",
               "RelativeToolTip": "SendMail_SMPT\\TrangchuMail.cs",
-              "ViewState": "AQIAAFYAAAAAAAAAAAAQwGMAAAARAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAA5wDEAAABfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-19T07:39:43.984Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "Manage.cs [Design]",
+              "DocumentMoniker": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\Manage.cs",
+              "RelativeDocumentMoniker": "SendMail_SMPT\\Manage.cs",
+              "ToolTip": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\Manage.cs [Design]",
+              "RelativeToolTip": "SendMail_SMPT\\Manage.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T15:08:35.182Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "SendMail.cs [Design]",
-              "DocumentMoniker": "D:\\HK2_2024\\laptrinhmangcanban\\ProjectIMAP\\SendMail_SMPT\\SendMail_SMPT\\SendMail.cs",
+              "DocumentMoniker": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\SendMail.cs",
               "RelativeDocumentMoniker": "SendMail_SMPT\\SendMail.cs",
-              "ToolTip": "D:\\HK2_2024\\laptrinhmangcanban\\ProjectIMAP\\SendMail_SMPT\\SendMail_SMPT\\SendMail.cs [Design]",
+              "ToolTip": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\SendMail.cs [Design]",
               "RelativeToolTip": "SendMail_SMPT\\SendMail.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-19T07:25:55.661Z",
@@ -68,13 +131,103 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "DangNhap.cs",
+              "DocumentMoniker": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\DangNhap.cs",
+              "RelativeDocumentMoniker": "SendMail_SMPT\\DangNhap.cs",
+              "ToolTip": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\DangNhap.cs",
+              "RelativeToolTip": "SendMail_SMPT\\DangNhap.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAADgAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T15:30:25.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Manage.Designer.cs",
+              "DocumentMoniker": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\Manage.Designer.cs",
+              "RelativeDocumentMoniker": "SendMail_SMPT\\Manage.Designer.cs",
+              "ToolTip": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\Manage.Designer.cs",
+              "RelativeToolTip": "SendMail_SMPT\\Manage.Designer.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAApwDEAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T15:09:06.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Resources.resx",
+              "DocumentMoniker": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\Properties\\Resources.resx",
+              "RelativeDocumentMoniker": "SendMail_SMPT\\Properties\\Resources.resx",
+              "ToolTip": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\Properties\\Resources.resx",
+              "RelativeToolTip": "SendMail_SMPT\\Properties\\Resources.resx",
+              "ViewState": "AQIAAFwAAAAAAAAAAIAwwHgAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-05-24T15:17:24.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DangNhap.Designer.cs",
+              "DocumentMoniker": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\DangNhap.Designer.cs",
+              "RelativeDocumentMoniker": "SendMail_SMPT\\DangNhap.Designer.cs",
+              "ToolTip": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\DangNhap.Designer.cs",
+              "RelativeToolTip": "SendMail_SMPT\\DangNhap.Designer.cs",
+              "ViewState": "AQIAAE8AAAAAAAAAAAAtwGgAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T15:30:52.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Manage.cs",
+              "DocumentMoniker": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\Manage.cs",
+              "RelativeDocumentMoniker": "SendMail_SMPT\\Manage.cs",
+              "ToolTip": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\Manage.cs",
+              "RelativeToolTip": "SendMail_SMPT\\Manage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T15:08:55.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SendMail.Designer.cs",
+              "DocumentMoniker": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\SendMail.Designer.cs",
+              "RelativeDocumentMoniker": "SendMail_SMPT\\SendMail.Designer.cs",
+              "ToolTip": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\SendMail.Designer.cs",
+              "RelativeToolTip": "SendMail_SMPT\\SendMail.Designer.cs",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAtwGAAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T14:53:19.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\Program.cs",
+              "RelativeDocumentMoniker": "SendMail_SMPT\\Program.cs",
+              "ToolTip": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\Program.cs",
+              "RelativeToolTip": "SendMail_SMPT\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-19T08:22:49.723Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "SendMail.cs",
-              "DocumentMoniker": "D:\\HK2_2024\\laptrinhmangcanban\\ProjectIMAP\\SendMail_SMPT\\SendMail_SMPT\\SendMail.cs",
+              "DocumentMoniker": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\SendMail.cs",
               "RelativeDocumentMoniker": "SendMail_SMPT\\SendMail.cs",
-              "ToolTip": "D:\\HK2_2024\\laptrinhmangcanban\\ProjectIMAP\\SendMail_SMPT\\SendMail_SMPT\\SendMail.cs",
+              "ToolTip": "D:\\Winform\\ProjectIMAPmailing\\SendMail_SMPT\\SendMail.cs",
               "RelativeToolTip": "SendMail_SMPT\\SendMail.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADIAAAA0AAAA",
+              "ViewState": "AQIAADIAAAAAAAAAAAAgwEUAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-19T07:25:36.578Z",
               "EditorCaption": ""
