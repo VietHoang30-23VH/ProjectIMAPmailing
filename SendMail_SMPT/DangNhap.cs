@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using System.Diagnostics.Eventing.Reader;
 using MailKit.Net.Imap;
-using static SendMail_SMPT.TrangchuMail;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace SendMail_SMPT
 {
@@ -27,18 +16,16 @@ namespace SendMail_SMPT
             public static string TaiKhoan { get; set; }
             public static string Matkhau { get; set; }
         }
+        private void DangNhapHeThong()
+        {
+            MKTK.TaiKhoan = txbTaikhoan.Text;
+            MKTK.Matkhau = txbMatkhau.Text;
+        }
         private void btnQuanLyThu_Click(object sender, EventArgs e)
         {
             try
             {
-                MKTK.TaiKhoan = txbTaikhoan.Text;
-                MKTK.Matkhau = txbMatkhau.Text;
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
-                smtpClient.Port = 587;
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new System.Net.NetworkCredential(MKTK.TaiKhoan,MKTK.Matkhau);
-                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtpClient.EnableSsl = true;
+                DangNhapHeThong();
                 TrangchuMail instancemail = new TrangchuMail();
                 instancemail.Show();
             }
@@ -49,30 +36,15 @@ namespace SendMail_SMPT
         }
         private void displayMk_CheckedChanged(object sender, EventArgs e)
         {
-            if (displayMk.Checked)
-            {
-                txbMatkhau.UseSystemPasswordChar = PasswordPropertyTextAttribute.No.Password;
-            }
-            else
-            {
-                txbMatkhau.UseSystemPasswordChar = PasswordPropertyTextAttribute.Yes.Password;
-            }
+            txbMatkhau.UseSystemPasswordChar = !displayMk.Checked;
         }
 
         private void btnGuiThu_Click(object sender, EventArgs e)
         {
-            MKTK.TaiKhoan = txbTaikhoan.Text;
-            MKTK.Matkhau = txbMatkhau.Text;
-            var listEmail = new List<EmailInfo>();
+            DangNhapHeThong();
             var mailClient = new ImapClient();
             mailClient.Connect("imap.gmail.com", 993);
             mailClient.Authenticate(MKTK.TaiKhoan, MKTK.Matkhau);
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
-            smtpClient.Port = 587;
-            smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = new System.Net.NetworkCredential(MKTK.TaiKhoan, MKTK.Matkhau);
-            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtpClient.EnableSsl = true;
             SendMail sendMail = new SendMail();
             sendMail.ShowDialog();
         }
@@ -87,18 +59,10 @@ namespace SendMail_SMPT
         {
             try
             {
-                MKTK.TaiKhoan = txbTaikhoan.Text;
-                MKTK.Matkhau = txbMatkhau.Text;
-                var listEmail = new List<EmailInfo>();
+                DangNhapHeThong();
                 var mailClient = new ImapClient();
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
                 mailClient.Connect("imap.gmail.com", 993);
                 mailClient.Authenticate(MKTK.TaiKhoan, MKTK.Matkhau);
-                smtpClient.Port = 587;
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new System.Net.NetworkCredential(MKTK.TaiKhoan, MKTK.Matkhau);
-                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtpClient.EnableSsl = true;
                 MessageBox.Show("Đăng nhập thành công.","Thông bá0",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 btnGuiThu.Enabled = true;
                 btnQuanLyThu.Enabled = true;

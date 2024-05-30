@@ -112,3 +112,6 @@ D:\Winform\ProjectIMAPmailing\SendMail_SMPT\bin\Debug\System.ValueTuple.xml
 D:\Winform\ProjectIMAPmailing\SendMail_SMPT\obj\Debug\SendMail_SMPT.Properties.Resources.resources
 D:\Winform\ProjectIMAPmailing\SendMail_SMPT\obj\Debug\SendMail_SMPT.csproj.CoreCompileInputs.cache
 D:\Winform\ProjectIMAPmailing\SendMail_SMPT\obj\Debug\SendMail.CDEAE916.Up2Date
+D:\Winform\ProjectIMAPmailing\SendMail_SMPT\bin\Debug\HtmlAgilityPack.dll
+D:\Winform\ProjectIMAPmailing\SendMail_SMPT\bin\Debug\HtmlAgilityPack.pdb
+D:\Winform\ProjectIMAPmailing\SendMail_SMPT\bin\Debug\HtmlAgilityPack.xml

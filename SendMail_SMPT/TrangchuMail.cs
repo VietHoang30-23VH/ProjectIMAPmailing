@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MailKit;
 using MailKit.Net.Imap;
-using MailKit.Search;
 using MimeKit;
 using static SendMail_SMPT.DangNhap;
 
@@ -15,85 +11,58 @@ namespace SendMail_SMPT
     public partial class TrangchuMail : Form
     {
         private ImapClient mailClient;
-
+        List<EmailInfo> emailDataList = new List<EmailInfo>();
         public TrangchuMail()
         {
             InitializeComponent();
-            this.FormClosing += TrangchuMail_FormClosing; // Đảm bảo ngắt kết nối IMAP khi form đóng
-            GetMail();
+            this.FormClosing += TrangchuMail_FormClosing;
+            dataGridView1.Columns.Add("","");
+            dataGridView1.Columns[""].Width = 0;
         }
-
-        public class EmailInfo
-        {
-            public string Id { get; set; }
-            public string From { get; set; }
-            public DateTimeOffset TimeReceive { get; set; }
-            public string Subject { get; set; }
-            public string Body { get; set; }
-            public string FileAttachment { get; set; }
-        }
-
-        private async void GetMail()
+        private void btnGetMail_Click(object sender, EventArgs e)
         {
             string textTK = MKTK.TaiKhoan;
             string textMK = MKTK.Matkhau;
-            var listEmail = new List<EmailInfo>();
-
-            mailClient = new ImapClient();
-            await mailClient.ConnectAsync("imap.gmail.com", 993, true);
-            await mailClient.AuthenticateAsync(textTK, textMK);
-
-            var folder = await mailClient.GetFolderAsync("INBOX");
-            await folder.OpenAsync(FolderAccess.ReadWrite);
-
-            IList<UniqueId> emailIds = await folder.SearchAsync(SearchQuery.All);
-            emailIds = emailIds.OrderByDescending(uid => folder.GetMessage(uid).Date).ToList();
-
-            int emailCount = 0;
-            foreach (UniqueId emailId in emailIds)
+            try
             {
-                if (emailCount >= 20)
+                var client = new ImapClient();
+                client.Connect("imap.gmail.com", 993, true);
+                client.Authenticate(textTK, textMK);
+                var inbox = client.Inbox;
+                inbox.Open(FolderAccess.ReadOnly);
+                lbTotal.Text = (inbox.Count - 1).ToString();
+                int sequenceNumber = 1;
+                List<EmailInfo> emailList = new List<EmailInfo>();
+
+                for (int i = inbox.Count - 1; i > 0; i--)
                 {
-                    break;
+                    var mess = inbox.GetMessage(i);
+                    var emailInfo = CreateEmailInfoFromMimeMessage(mess, sequenceNumber);
+                    emailList.Add(emailInfo);
+
+                    dataGridView1.Rows.Add(sequenceNumber, mess.Subject, mess.From.ToString(), mess.Date.ToString("dd-MM-yyyy HH:mm:ss"));
+                    sequenceNumber++;
                 }
-
-                MimeMessage message = await folder.GetMessageAsync(emailId);
-                var emailInfo = new EmailInfo
-                {
-                    Id = emailId.ToString(),
-                    From = message.From.ToString(),
-                    TimeReceive = message.Date,
-                    Subject = message.Subject,
-                    Body = !string.IsNullOrEmpty(message.HtmlBody) ? message.HtmlBody : message.TextBody
-                };
-
-                var fileAttachment = new List<string>();
-                foreach (MimeEntity attachment in message.Attachments)
-                {
-                    var fileName = attachment.ContentDisposition?.FileName ?? attachment.ContentType.Name;
-                    fileAttachment.Add(fileName);
-
-                    using (var stream = new FileStream(fileName, FileMode.Create))
-                    {
-                        if (attachment is MessagePart rfc822)
-                        {
-                            await rfc822.Message.WriteToAsync(stream);
-                        }
-                        else if (attachment is MimePart part)
-                        {
-                            await part.Content.DecodeToAsync(stream);
-                        }
-                    }
-                }
-                emailInfo.FileAttachment = string.Join("; ", fileAttachment);
-                listEmail.Add(emailInfo);
-                emailCount++;
+                dataGridView1.DataSource = emailList; 
+                dataGridView1.CellClick += DataGridView1_CellClick;
+                btnGetMail.Enabled = false;
             }
-
-            dataGridView1.DataSource = listEmail;
-            dataGridView1.CellClick += DataGridView1_CellClick;
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+            }
         }
-
+        private EmailInfo CreateEmailInfoFromMimeMessage(MimeMessage message, int sequenceNumber)
+        {
+            return new EmailInfo
+            {
+                SequenceNumber = sequenceNumber,
+                From = message.From.ToString(),
+                TimeReceive = message.Date.DateTime,
+                Subject = message.Subject,
+                Body = !string.IsNullOrEmpty(message.HtmlBody) ? message.HtmlBody : message.TextBody
+            };
+        }
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -104,9 +73,9 @@ namespace SendMail_SMPT
                     string emailHtml = GetEmailHtml(emailInfo);
                     webBrowser1.DocumentText = emailHtml;
                 }
+                lbPresent.Text = (e.RowIndex+1).ToString();
             }
         }
-
         private string GetEmailHtml(EmailInfo emailInfo)
         {
             return $@"
@@ -135,7 +104,15 @@ namespace SendMail_SMPT
             </body>
             </html>";
         }
+        private class EmailInfo
+        {
+            public int SequenceNumber { get; set; }
+            public string From { get; set; }    
+            public string Subject { get; set; }
+            public DateTimeOffset TimeReceive { get; set; }
+            public string Body { get; set; }
 
+        }
         private void TrangchuMail_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (mailClient != null && mailClient.IsConnected)
@@ -161,18 +138,8 @@ namespace SendMail_SMPT
         }
 
         private void btnQuaylai2_Click(object sender, EventArgs e)
-        {
+        { 
             this.Hide();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Bạn có thể thêm logic cho sự kiện này nếu cần thiết
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

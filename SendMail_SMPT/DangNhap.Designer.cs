@@ -40,7 +40,11 @@
             this.btnGuiThu = new System.Windows.Forms.Button();
             this.btnDN = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -97,9 +101,9 @@
             // 
             this.btnQuanLyThu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQuanLyThu.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuanLyThu.Location = new System.Drawing.Point(151, 353);
+            this.btnQuanLyThu.Location = new System.Drawing.Point(143, 353);
             this.btnQuanLyThu.Name = "btnQuanLyThu";
-            this.btnQuanLyThu.Size = new System.Drawing.Size(134, 48);
+            this.btnQuanLyThu.Size = new System.Drawing.Size(173, 48);
             this.btnQuanLyThu.TabIndex = 8;
             this.btnQuanLyThu.Text = "Quản lí thư";
             this.btnQuanLyThu.UseVisualStyleBackColor = true;
@@ -131,9 +135,9 @@
             // 
             this.btnGuiThu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuiThu.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuiThu.Location = new System.Drawing.Point(410, 353);
+            this.btnGuiThu.Location = new System.Drawing.Point(411, 353);
             this.btnGuiThu.Name = "btnGuiThu";
-            this.btnGuiThu.Size = new System.Drawing.Size(134, 48);
+            this.btnGuiThu.Size = new System.Drawing.Size(173, 48);
             this.btnGuiThu.TabIndex = 9;
             this.btnGuiThu.Text = "Gửi thư";
             this.btnGuiThu.UseVisualStyleBackColor = true;
@@ -142,9 +146,9 @@
             // btnDN
             // 
             this.btnDN.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDN.Location = new System.Drawing.Point(279, 283);
+            this.btnDN.Location = new System.Drawing.Point(278, 272);
             this.btnDN.Name = "btnDN";
-            this.btnDN.Size = new System.Drawing.Size(134, 48);
+            this.btnDN.Size = new System.Drawing.Size(173, 48);
             this.btnDN.TabIndex = 7;
             this.btnDN.Text = "Đăng nhập";
             this.btnDN.UseVisualStyleBackColor = true;
@@ -153,18 +157,42 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(46, 33);
+            this.pictureBox1.Location = new System.Drawing.Point(45, 21);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(137, 114);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(279, 353);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(37, 48);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(547, 353);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(37, 48);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 12;
+            this.pictureBox3.TabStop = false;
+            // 
             // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 433);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnDN);
             this.Controls.Add(this.btnGuiThu);
@@ -180,6 +208,8 @@
             this.Text = "Login";
             this.Load += new System.EventHandler(this.DangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,5 +228,7 @@
         private System.Windows.Forms.Button btnGuiThu;
         private System.Windows.Forms.Button btnDN;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
